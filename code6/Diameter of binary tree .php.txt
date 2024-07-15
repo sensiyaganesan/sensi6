@@ -1,0 +1,41 @@
+/**
+ * Definition for a binary tree node.
+ * class TreeNode {
+ *     public $val = null;
+ *     public $left = null;
+ *     public $right = null;
+ *     function __construct($val = 0, $left = null, $right = null) {
+ *         $this->val = $val;
+ *         $this->left = $left;
+ *         $this->right = $right;
+ *     }
+ * }
+ */
+ class Solution 
+ {
+    /**
+     * @param TreeNode $root
+     * @return Integer
+     */
+    function diameterOfBinaryTree($root)
+     {
+        if ($root === null) 
+        {
+            return 0;
+        }
+        $maxDiameter = 0;
+        $this->depth($root, $maxDiameter);
+                return $maxDiameter;
+     }
+    function depth($node, &$maxDiameter)
+     {
+        if ($node === null)
+         {
+            return 0;
+         }
+        $leftDepth = $this->depth($node->left, $maxDiameter);
+        $rightDepth = $this->depth($node->right, $maxDiameter);
+        $maxDiameter = max($maxDiameter, $leftDepth + $rightDepth);
+        return 1 + max($leftDepth, $rightDepth);
+    }
+}

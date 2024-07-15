@@ -1,0 +1,21 @@
+class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
+    function findNumbers($nums) {
+        $value = 0;
+        
+        foreach ($nums as $num) 
+        {
+            $numStr = (string) $num;
+            $length = strlen($numStr);
+            if ($length % 2 === 0) 
+            {
+                $value++;
+            }
+        }
+        return $value;
+    }
+}

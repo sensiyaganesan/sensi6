@@ -1,0 +1,17 @@
+class Solution {
+
+    /**
+     * @param ListNode $head
+     * @return Integer
+     */
+    function getDecimalValue($head) {
+        $Value = 0;
+        while ($head !== null) 
+        {
+            $Value = $Value * 2 + $head->val;
+            $head = $head->next;
+        }
+        
+        return $Value;
+    }
+}

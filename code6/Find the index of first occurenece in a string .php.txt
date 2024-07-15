@@ -1,0 +1,23 @@
+class Solution {
+    /**
+     * @param String $haystack
+     * @param String $needle
+     * @return Integer
+     */
+    function strStr($haystack, $needle) {
+        if ($needle === '') 
+        {
+            return 0;
+        }
+        $carry = strpos($haystack, $needle);
+        
+        if ($carry === false)
+         {
+            return -1;
+        }
+         else
+          {
+            return $carry;
+        }
+    }
+}

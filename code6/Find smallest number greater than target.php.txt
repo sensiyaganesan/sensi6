@@ -1,0 +1,27 @@
+class Solution {
+
+    /**
+     * @param String[] $letters
+     * @param String $target
+     * @return String
+     */
+    function nextGreatestLetter($letters, $target) {
+        $n = count($letters);
+        $left = 0;
+        $right = $n - 1;
+        
+        while ($left <= $right)
+         {
+            $mid = $left + intdiv($right - $left, 2);
+            
+            if ($letters[$mid] <= $target) {
+                $left = $mid + 1;
+            } 
+            else 
+            {
+                $right = $mid - 1;
+            }
+        }
+        return $letters[$left % $n];
+    }
+}

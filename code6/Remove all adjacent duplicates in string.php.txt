@@ -1,0 +1,24 @@
+class Solution {
+
+    /**
+     * @param String $s
+     * @return String
+     */
+    function removeDuplicates($s) {
+        $stack = [];
+        
+        for ($i = 0; $i < strlen($s); $i++)
+         {
+            $char = $s[$i];
+            if (!empty($stack) && $char === end($stack)) 
+            {
+                array_pop($stack);
+            }
+             else 
+            {
+                array_push($stack, $char); 
+            }
+        }
+        return implode("", $stack);
+    }
+}
